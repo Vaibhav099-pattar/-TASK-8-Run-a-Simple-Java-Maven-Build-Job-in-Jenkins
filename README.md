@@ -39,13 +39,21 @@ STEP.2. Create a pom.xml
 </project>
 STEP 3.Start Jenkins via Docker->docker run -p 8081:8080 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts
 STEP 4.Visit http://localhost:8081
-STEP 5. Create a Jenkins Freestyle Project
+STEP 5.Configure Tools in Jenkins
+       a.Go to Manage Jenkins → Global Tool Configuration
+       b.Under JDK, add Java 8/11 if not already available.
+       c.Under Maven, click "Add Maven"
+          a.Name: Maven 3.8.6
+          b.Install automatically (or provide local path)
+
+          
+STEP 6. Create a Jenkins Freestyle Project
         a.Go to Jenkins Dashboard → New Item
         b.Enter name: hello-java-maven
         c.Choose Freestyle project
         d.In Build section->Click Add build step → Invoke top-level Maven targets
           Goals: clean package
-STEP:6 Build & Verify
+STEP 7. Build & Verify
   a.Click Save
   b.Click Build Now
   c.Click on the build → Console Output
